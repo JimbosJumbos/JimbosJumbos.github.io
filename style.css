@@ -1,0 +1,17 @@
+#OutputTable  th, tr {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+#OutputTable  {
+  border: 1px solid black;
+}
+
+body {
+  width=device-width;
+  height=device-height;
+}
+
+iframe {
+      height: calc(100% - var(--cp-header-height-small)) !important;
+}

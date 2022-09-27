@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - WeightForHeight</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<p> Uses the British 1990 Dataset </p> 
+Amount <input type='number' id='LineAmount' value='1'>
+<button onClick='lineCount = AddLine(lineCount, I_LineZone, O_LineZone);'>Add Lines</button> 
+
+<h4> CSV Import </h4>
+<button onClick='lineCount = CSVInput(lineCount, I_LineZone, O_LineZone);'>Convert CSV and Add Lines</button><br>
+<textarea id='CSVInput' ></textarea>
+
+
+<h4>Input Table</h4>
+<table id='InputTable'>
+  <tr>
+    <th> Line: </th>
+    <th>Gender: </th>
+    <th>Age:</th>
+    <th>Height:</th>
+    <th>Weight:</th>
+    <th>Mid-Parent Height:</th>
+
+  </tr>
+  
+  <tr id='I_1'>
+    <th> 1 </th>
+    <th><select class='Gender' value='Male'>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+    </th>
+    <th><input type='number' min="0" step="1" oninput="validity.valid||(value=parseInt(value));" class='Age' value='10'></th>
+    <th><input type='number' class='Height' value='1.31'></th>
+    <th><input type='number' class='Weight' value='50.2'></th>
+    <th><input type='number' class='MidParent' value='1.525'></th>
+  </tr>
+
+</table>
+
+
+
+<br>
+<h4>Output Table</h4>
+<table id='OutputTable'>
+  <tr>
+    <th>Line</th>
+    <th>BMI</th>
+    <th>Ideal BMI</th>
+    <th>Ideal Body Weight</th>
+    <th>% WFH</th>
+    <th>Percentile BMI</th>
+    <th>Percentile Weight</th>
+    <th>Percentile Height</th>
+    <th>Predicted Height</th>
+    <th>% Predicted Height</th>
+    <th>Pubertal Stage</th>
+
+  </tr>
+
+  <tr id='O_1'>
+    <th>1</th>
+    <th class='BMIOUT'></th>
+    <th class='IBMIOUT'></th>
+    <th class='IBWOUT'></th>
+    <th class='PerWFHOUT'></th>
+    <th>Coming Soon</th>
+    <th>Coming Soon</th>
+    <th>Coming Soon</th>
+    <th class='PreHeightOUT'> </th>
+    <th class='PerPreHeightOUT'></th>
+    <th class='PubStageOUT'></th>
+  </tr>
+
+</table>
+
+<h4> CSV </h4>
+
+<p id='CSV'>No CSV generated;</p>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
