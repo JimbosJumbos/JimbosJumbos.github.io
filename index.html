@@ -8,13 +8,17 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<p> Uses the British 1990 Dataset </p> 
-Amount <input type='number' id='LineAmount' value='1'>
-<button onClick='lineCount = AddLine(lineCount, I_LineZone, O_LineZone);'>Add Lines</button> 
+<p> Simple online page to computer values found in the Weight for Height App.<br> <br> CSV import is in the same format as the Input Table excluding the headings and line number. <br> <br>Uses the British 1990 Dataset and BioBanding Dataset for Predicted Height. 
+<br>Currently only supports interger ages. </p> 
+<p> Completely open-source and in browser (No data leaves your computer)</p>
 
 <h4> CSV Import </h4>
 <button onClick='lineCount = CSVInput(lineCount, I_LineZone, O_LineZone);'>Convert CSV and Add Lines</button><br>
 <textarea id='CSVInput' ></textarea>
+
+<h4> Add Lines </h4>
+Amount <input type='number' id='LineAmount' value='1'>
+<button onClick='lineCount = AddLine(lineCount, I_LineZone, O_LineZone);'>Add Lines</button> 
 
 
 <h4>Input Table</h4>
