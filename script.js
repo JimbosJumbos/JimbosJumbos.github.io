@@ -308,7 +308,7 @@ function inputLineTemplate(lineCount){
         <option>Female</option>
       </select>
     </th>
-    <th><input type='number' class='Age' value=''></th>
+    <th><input type='number' class='Age' min="0" step="1" oninput="validity.valid||(value=parseInt(value));" value=''></th>
     <th><input type='number' class='Height' value=''></th>
     <th><input type='number' class='Weight' value=''></th>
     <th><input type='number' class='MidParent' value=''></th>
@@ -316,7 +316,6 @@ function inputLineTemplate(lineCount){
   return iStr;
 }
 
-//min="0" step="1" oninput="validity.valid||(value=parseInt(value));"
 
 function outputLineTemplate(lineCount){
   var oStr =  ` 
@@ -402,20 +401,32 @@ function UpdateForm(QIForm, QOForm) {
 
   if (Gender == "Male") {
     var LIBMI = MaleIBMIDict[AgeIn.value];
+    IBMIOUT.innerHTML = LIBMI;
+    CSVRunner = CSVRunner + LIBMI + ' , ';
+  
+    var LIBW = IBW(MaleIBMIDict[AgeIn.value], HeightIn.value);
+    IBWOUT.innerHTML = LIBW.toFixed(2);
+    CSVRunner = CSVRunner + LIBW + ' , ';
+  
+    var LPerWFH = (
+        (WeightIN.value / IBW(MaleIBMIDict[AgeIn.value], HeightIn.value)) *
+        100
+      );
   } else if (Gender == "Female") {
     var LIBMI = FemaleIBMIDict[AgeIn.value];
+    IBMIOUT.innerHTML = LIBMI;
+    CSVRunner = CSVRunner + LIBMI + ' , ';
+  
+    var LIBW = IBW(FemaleIBMIDict[AgeIn.value], HeightIn.value);
+    IBWOUT.innerHTML = LIBW.toFixed(2);
+    CSVRunner = CSVRunner + LIBW + ' , ';
+  
+    var LPerWFH = (
+        (WeightIN.value / IBW(FemaleIBMIDict[AgeIn.value], HeightIn.value)) *
+        100
+      );
   }
-  IBMIOUT.innerHTML = LIBMI;
-  CSVRunner = CSVRunner + LIBMI + ' , ';
   
-  var LIBW = IBW(MaleIBMIDict[AgeIn.value], HeightIn.value);
-  IBWOUT.innerHTML = LIBW.toFixed(2);
-  CSVRunner = CSVRunner + LIBW + ' , ';
-  
-  var LPerWFH = (
-      (WeightIN.value / IBW(MaleIBMIDict[AgeIn.value], HeightIn.value)) *
-      100
-    );
   PerWFHOUT.innerHTML =
    LPerWFH.toFixed(2) + "%";
   CSVRunner = CSVRunner + LPerWFH + ' , ';
