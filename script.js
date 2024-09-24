@@ -401,7 +401,7 @@ function UpdateForm(QIForm, QOForm) {
 
   if (Gender == "Male") {
     var LIBMI = MaleIBMIDict[AgeIn.value];
-    IBMIOUT.innerHTML = LIBMI;
+    IBMIOUT.innerHTML = LIBMI.toFixed(2);
     CSVRunner = CSVRunner + LIBMI + ' , ';
   
     var LIBW = IBW(MaleIBMIDict[AgeIn.value], HeightIn.value);
@@ -414,7 +414,7 @@ function UpdateForm(QIForm, QOForm) {
       );
   } else if (Gender == "Female") {
     var LIBMI = FemaleIBMIDict[AgeIn.value];
-    IBMIOUT.innerHTML = LIBMI;
+    IBMIOUT.innerHTML = LIBMI.toFixed(2);
     CSVRunner = CSVRunner + LIBMI + ' , ';
   
     var LIBW = IBW(FemaleIBMIDict[AgeIn.value], HeightIn.value);
