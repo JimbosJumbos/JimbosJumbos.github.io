@@ -465,7 +465,7 @@ var O_LineZone = document.getElementById("OutputTable");
 
 var lineCount = 1;
 
-function UpdateForms(lineCount) {
+function UpdateForms(lineCount_1) {
   var CSV = "";
   var n = 1;
   while(n <= lineCount){
@@ -477,10 +477,10 @@ function UpdateForms(lineCount) {
   document.getElementById("CSV").innerHTML = 'BMI,	Ideal BMI,	Ideal Body Weight	,% WFH,	Percentile BMI,	Percentile Weight,	Percentile Height,	Predicted Height,	% Predicted Height,	Pubertal Stage <br>' + CSV;
 }
 
-function AddLine(lineCount, I_LineZone, O_LineZone){
+function AddLine(lineCount_1, I_LineZone, O_LineZone){
   var toAdd = document.getElementById("LineAmount").value;
   while(toAdd > 0){
-    lineCount ++; 
+    lineCount += 1; 
 
       var newILine = document.createElement('tr');
       newILine.setAttribute('id', 'I_'+lineCount);
@@ -511,7 +511,7 @@ UpdateForms(lineCount);
 
 
 
-function CSVInput(lineCount, I_LineZone, O_LineZone){
+function CSVInput(lineCount_1, I_LineZone, O_LineZone){
   var toImport = document.getElementById("CSVInput").value;
   var lines = toImport.split('\n');
   
