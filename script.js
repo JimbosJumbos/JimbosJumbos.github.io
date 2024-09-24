@@ -308,13 +308,15 @@ function inputLineTemplate(lineCount){
         <option>Female</option>
       </select>
     </th>
-    <th><input type='number' min="0" step="1" oninput="validity.valid||(value=parseInt(value));" class='Age' value=''></th>
+    <th><input type='number' class='Age' value=''></th>
     <th><input type='number' class='Height' value=''></th>
     <th><input type='number' class='Weight' value=''></th>
     <th><input type='number' class='MidParent' value=''></th>
   `;
   return iStr;
 }
+
+//min="0" step="1" oninput="validity.valid||(value=parseInt(value));"
 
 function outputLineTemplate(lineCount){
   var oStr =  ` 
